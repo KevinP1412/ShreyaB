@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>For Shreya ❤️</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Poppins;
+overflow:hidden;
+color:white;
+text-align:center;
+background:linear-gradient(135deg,#ff0080,#6a11cb,#2575fc);
+}
+
+/* LAYERS */
+
+.layer{
+display:none;
+height:100vh;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+}
+
+.active{
+display:flex;
+}
+
+/* BUTTON */
+
+button{
+padding:12px 25px;
+border-radius:25px;
+border:none;
+font-weight:bold;
+cursor:pointer;
+background:white;
+color:#ff0080;
+}
+
+/* INPUT */
+
+input{
+padding:12px;
+border-radius:20px;
+border:none;
+margin:10px;
+}
+
+/* EMOJI RAIN */
+
+.fall{
+position:fixed;
+animation:drop 7s linear infinite;
+font-size:26px;
+}
+
+@keyframes drop{
+0%{top:-10%}
+100%{top:110%}
+}
+
+/* SLIDESHOW */
+
+.slidebox{
+width:320px;
+height:420px;
+overflow:hidden;
+border-radius:25px;
+box-shadow:0 0 40px white;
+position:relative;
+}
+
+.slide{
+
+display:none;
+width:100%;
+height:100%;
+
+object-fit:cover;
+
+/* ZOOM ANIMATION */
+
+animation:zoomOut 3s ease forwards;
+
+}
+
+@keyframes zoomOut{
+
+0%{
+transform:scale(1.25);
+}
+
+100%{
+transform:scale(1);
+}
+
+}
+
+
+/* HAPPY TEXT */
+
+#happyText{
+
+margin-top:18px;
+
+font-size:28px;
+
+font-weight:bold;
+
+letter-spacing:6px;
+
+animation:glowText 1.5s infinite alternate;
+
+}
+
+@keyframes glowText{
+
+from{
+
+text-shadow:
+0 0 10px pink;
+
+}
+
+to{
+
+text-shadow:
+0 0 25px gold,
+0 0 40px hotpink;
+
+}
+
+}
+
+
+/* CARD */
+
+.card{
+background:rgba(255,255,255,.15);
+padding:25px;
+border-radius:20px;
+backdrop-filter:blur(10px);
+max-width:420px;
+}
+
+/* PREMIUM CINEMA */
+
+#premiumLayer{
+
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+
+background:
+radial-gradient(circle,#ff008055,transparent),
+linear-gradient(135deg,#000,#120020,#000);
+
+justify-content:center;
+align-items:center;
+overflow:hidden;
+z-index:9999;
+
+}
+
+/* SHOOT TEXT */
+
+#shootText{
+
+position:absolute;
+top:110%;
+left:50%;
+transform:translateX(-50%);
+font-size:70px;
+letter-spacing:18px;
+font-weight:bold;
+
+background:linear-gradient(90deg,#ff0080,#ffd700,#00ffff);
+
+-webkit-background-clip:text;
+
+color:transparent;
+
+text-shadow:
+0 0 30px pink,
+0 0 55px cyan;
+
+}
+
+@keyframes shootUp{
+
+0%{
+top:110%;
+opacity:0;
+transform:translateX(-50%) scale(.4);
+}
+
+70%{
+opacity:1;
+}
+
+100%{
+top:45%;
+transform:translateX(-50%) scale(1.4);
+}
+
+}
+
+/* HEART */
+
+.heart{
+
+position:absolute;
+animation:explode 3s linear forwards;
+
+}
+
+@keyframes explode{
+
+0%{
+transform:translate(0,0) scale(.5);
+opacity:1;
+}
+
+100%{
+
+transform:
+translate(
+calc(-50vw + 100vw * var(--x)),
+calc(-50vh + 100vh * var(--y))
+)
+scale(2.8);
+
+opacity:0;
+
+}
+
+}
+
+/* SHAKE */
+
+@keyframes shake{
+
+0%{transform:translate(2px,1px)}
+25%{transform:translate(-2px,-1px)}
+50%{transform:translate(2px,-2px)}
+75%{transform:translate(-2px,2px)}
+100%{transform:translate(0)}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- SONGS -->
+
+<audio id="song">
+<source src="song3.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="song2" loop>
+<source src="song2.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+/* EMOJI RAIN */
+
+let emojis=["❤️","🧸","🤗","💕"];
+
+setInterval(()=>{
+
+let e=document.createElement("div");
+
+e.className="fall";
+
+e.innerHTML=emojis[Math.floor(Math.random()*4)];
+
+e.style.left=Math.random()*100+"%";
+
+document.body.appendChild(e);
+
+setTimeout(()=>e.remove(),7000);
+
+},400);
+
+</script>
+
+
+<!-- INTRO -->
+
+<div id="l0" class="layer active">
+
+<h1>❤️ For Beautiful Shreya ❤️</h1>
+
+<button onclick="show('l1')">
+Start Surprise 🧸
+</button>
+
+</div>
+
+
+<!-- PASSWORDS -->
+
+<div id="l1" class="layer">
+
+<h2>Enter Your Birthday 🎂</h2>
+
+<input id="p1">
+
+<button onclick="c1()">Unlock ❤️</button>
+
+</div>
+
+
+<div id="l2" class="layer">
+
+<h2>Your Closest Friend 🤗</h2>
+
+<p>Hint : Always Around You ❤️</p>
+
+<input id="p2">
+
+<button onclick="c2()">Next</button>
+
+</div>
+
+
+<div id="l3" class="layer">
+
+<h2>Your Strongest Support ❤️</h2>
+
+<p>Hint : Silent Protector 🤗</p>
+
+<input id="p3">
+
+<button onclick="c3()">Next</button>
+
+</div>
+
+
+<!-- CAKE -->
+
+<div id="cake" class="layer">
+
+<h1>Tap Cake 🎂</h1>
+
+<div onclick="cakeBlast()"
+style="font-size:90px;cursor:pointer">
+
+🎂
+
+</div>
+
+</div>
+
+
+
+<!-- SLIDES -->
+
+<div id="l4" class="layer">
+
+<h2>Memories ❤️</h2>
+
+<div class="slidebox">
+
+<img src="photo1.jpeg" class="slide">
+<img src="photo2.jpeg" class="slide">
+<img src="photo3.jpeg" class="slide">
+<img src="photo4.jpeg" class="slide">
+<img src="photo5.jpeg" class="slide">
+<img src="photo6.jpeg" class="slide">
+<img src="photo7.jpeg" class="slide">
+<img src="photo8.jpeg" class="slide">
+<img src="photo9.jpeg" class="slide">
+<img src="photo10.jpeg" class="slide">
+
+</div>
+
+<div id="happyText">
+
+✨ HAPPY BIRTHDAY ✨
+
+</div>
+
+</div>
+
+
+
+<!-- CARD -->
+
+<div id="l5" class="layer">
+
+<div class="card">
+
+<h2>❤️ Happy Birthday ❤️</h2>
+
+<p>
+
+Dear Shreya ❤️,
+Some people slowly become important… but you became special instantly.
+Your smile feels like peace and your presence feels like home 🤗.
+
+</p>
+
+<p>
+
+You are deeply admired, silently cared for and always wished happiness from the heart.
+Stay forever the same beautiful soul ❤️🧸.
+
+— Someone Very Close ❤️
+
+</p>
+
+<button onclick="openHeart()">
+
+Open My Heart ❤️
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- PREMIUM -->
+
+<div id="premiumLayer">
+
+<div id="shootText">
+
+I&nbsp;&nbsp;LOVE&nbsp;&nbsp;YOU ❤️
+
+</div>
+
+</div>
+
+
+<script>
+
+function show(x){
+
+document.querySelectorAll(".layer")
+
+.forEach(l=>l.classList.remove("active"));
+
+document.getElementById(x)
+
+.classList.add("active");
+
+}
+
+function c1(){
+
+if(p1.value=="01/03/2006")
+show("l2");
+else alert("Wrong ❤️");
+
+}
+
+function c2(){
+
+if(p2.value.toLowerCase()=="shubham")
+show("l3");
+else alert("Think ❤️");
+
+}
+
+function c3(){
+
+if(p3.value.toLowerCase()=="sharad")
+show("cake");
+else alert("Father ❤️");
+
+}
+
+
+/* CAKE */
+
+function cakeBlast(){
+
+document.body.style.animation="shake .5s";
+
+setTimeout(()=>{
+
+document.body.style.animation="";
+
+show("l4");
+
+startSlide();
+
+},600);
+
+}
+
+
+/* SLIDE */
+
+function startSlide(){
+
+let music=document.getElementById("song");
+
+music.currentTime=0;
+
+music.play().catch(()=>{
+
+document.body.addEventListener("click",()=>{
+
+music.play();
+
+},{once:true});
+
+});
+
+let s=document.querySelectorAll(".slide");
+
+let i=0;
+
+s[0].style.display="block";
+
+setInterval(()=>{
+
+s[i].style.display="none";
+
+i=(i+1)%s.length;
+
+s[i].style.display="block";
+
+/* animation restart */
+
+s[i].style.animation="none";
+
+s[i].offsetHeight;
+
+s[i].style.animation="zoomOut 3s ease forwards";
+
+},3000);
+
+setTimeout(()=>{
+
+music.pause();
+
+show("l5");
+
+},30000);
+
+}
+
+
+/* HEART OPEN */
+
+function openHeart(){
+
+document.getElementById("song2").play();
+
+startSurprise();
+
+}
+
+
+/* SURPRISE */
+
+function startSurprise(){
+
+let layer=document.getElementById("premiumLayer");
+
+let text=document.getElementById("shootText");
+
+layer.style.display="flex";
+
+document.body.style.animation="shake .5s";
+
+setTimeout(()=>{
+
+document.body.style.animation="";
+
+},500);
+
+text.style.animation="shootUp 2s forwards";
+
+setTimeout(()=>{
+
+explode();
+
+kissRain();
+
+},2000);
+
+}
+
+
+/* HEART EXPLOSION */
+
+function explode(){
+
+let layer=document.getElementById("premiumLayer");
+
+let emojis=["❤️","💖","💘","💕","💝","🧸","✨","💎"];
+
+for(let i=0;i<320;i++){
+
+let h=document.createElement("div");
+
+h.className="heart";
+
+h.innerHTML=
+emojis[Math.floor(Math.random()*emojis.length)];
+
+h.style.left="50%";
+
+h.style.top="45%";
+
+h.style.fontSize=(20+Math.random()*50)+"px";
+
+h.style.setProperty("--x",Math.random());
+
+h.style.setProperty("--y",Math.random());
+
+layer.appendChild(h);
+
+setTimeout(()=>h.remove(),3000);
+
+}
+
+}
+
+
+/* LOVE RAIN */
+
+function kissRain(){
+
+let layer=document.getElementById("premiumLayer");
+
+let count=0;
+
+let rain=setInterval(()=>{
+
+let e=document.createElement("div");
+
+e.innerHTML="💗";
+
+e.style.position="absolute";
+
+e.style.left=Math.random()*100+"%";
+
+e.style.top=Math.random()*100+"%";
+
+e.style.fontSize="45px";
+
+layer.appendChild(e);
+
+count++;
+
+if(count>80)
+
+clearInterval(rain);
+
+},120);
+
+}
+
+</script>
+
+</body>
+</html>
